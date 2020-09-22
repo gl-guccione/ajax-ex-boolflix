@@ -61,12 +61,15 @@ $(document).ready(function() {
 
   $("#search").val("");
 
-  $(".searchbar__button").click(displayFilm);
+  $(".searchbar__button").click(function() {
+    displayFilm();
+    $("#search").val("");
+  });
 
   $("#search").keyup(function(e) {
     if (e.which == 13 && $("#search").val() != "") {
-      console.log("funziono");
       displayFilm();
+      $("#search").val("");
     }
   });
 

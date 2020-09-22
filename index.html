@@ -23,7 +23,16 @@
     <ul class="films"></ul>
 
     <!-- handlebars - template -->
-    <script id="films-template" type="text/x-handlebars-template"></script>
+    <script id="films-template" type="text/x-handlebars-template">
+      <li class="films__film">
+        <h2>Titolo: {{title}}</h2>
+        <h4>Titolo Originale{{original_title}}</h4>
+        <h5>Lingua: {{original_language}}</h5>
+        <h5>Voto mmedio: {{vote_average}}</h5>
+        <p>{{overview}}</p>
+      </li>
+    </script>
     <!-- /handlebars - template -->
+    <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>

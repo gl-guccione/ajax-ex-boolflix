@@ -1,1 +1,43 @@
 // this is a sass file
+
+// VARIABLES
+
+$searchbarHeigth: 100px;
+
+// GENERAL
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.searchbar {
+  position: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 100%;
+  height: $searchbarHeigth;
+
+  border-bottom: 1px solid #c4c4c4;
+  background-color: #f5f5f5;
+  + * {
+    padding-top: $searchbarHeigth;
+  }
+  &__search {
+    width: 40ch;
+    padding: 4px 10px;
+
+    font-size: 18px;
+  }
+  &__button {
+    margin: 0 30px;
+
+    cursor: pointer;
+
+    font-size: 22px;
+  }
+}

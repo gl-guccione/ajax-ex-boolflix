@@ -63,4 +63,11 @@ $(document).ready(function() {
 
   $(".searchbar__button").click(displayFilm);
 
+  $("#search").keyup(function(e) {
+    if (e.which == 13 && $("#search").val() != "") {
+      console.log("funziono");
+      displayFilm();
+    }
+  });
+
 });

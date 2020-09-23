@@ -49,15 +49,14 @@ function displayFilm() {
 }
 
 // function that take the results of the ajax request and print the list of the films with handlebars
-function printFilms(object) {
+function printFilms(arrObject) {
 
   var source = $("#films-template").html();
   var template = Handlebars.compile(source);
 
-  $(".films").html("");
-
-  for (var i = 0; i < object.length; i++) {
-    var html = template(object[i]);
+  for (var i = 0; i < arrObject.length; i++) {
+    arrObject[i]["stars"] = toBaseFive(arrObject[i].vote_average);
+    var html = template(arrObject[i]);
     $(".films").append(html);
   }
 
@@ -71,12 +70,14 @@ $(document).ready(function() {
   $("#search").val("");
 
   $(".searchbar__button").click(function() {
+    $(".films").html("");
     displayFilm();
     $("#search").val("");
   });
 
   $("#search").keyup(function(e) {
     if (e.which == 13 && $("#search").val() != "") {
+      $(".films").html("");
       displayFilm();
       $("#search").val("");
     }

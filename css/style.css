@@ -4,6 +4,66 @@
   padding: 0;
 }
 
+span.stars-0::after {
+  content: "\f005\f005\f005\f005\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+}
+
+span.stars-1::before {
+  content: "\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+span.stars-1::after {
+  content: "\f005\f005\f005\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+}
+
+span.stars-2::before {
+  content: "\f005\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+span.stars-2::after {
+  content: "\f005\f005\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+}
+
+span.stars-3::before {
+  content: "\f005\f005\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+span.stars-3::after {
+  content: "\f005\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+}
+
+span.stars-4::before {
+  content: "\f005\f005\f005\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+span.stars-4::after {
+  content: "\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+}
+
+span.stars-5::before {
+  content: "\f005\f005\f005\f005\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
 .searchbar {
   position: fixed;
   display: flex;

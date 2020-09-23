@@ -2,10 +2,24 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: #fff;
+}
+
+body {
+  background-color: #070606;
+}
+
+input {
+  color: #070606;
 }
 
 .flag {
   vertical-align: middle;
+}
+
+.logo {
+  height: 50px;
+  padding-left: 20px;
 }
 
 span.stars-0::after {
@@ -72,11 +86,11 @@ span.stars-5::before {
   position: fixed;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
   height: 100px;
-  border-bottom: 1px solid #c4c4c4;
-  background-color: #f5f5f5;
+  border-bottom: 1px solid #d40100;
+  background-color: #606060;
 }
 
 .searchbar + * {
@@ -93,6 +107,39 @@ span.stars-5::before {
   margin: 0 30px;
   cursor: pointer;
   font-size: 22px;
+}
+
+.film__container,
+.tv-shows__container {
+  padding: 25px;
+}
+
+.films {
+  display: flex;
+  overflow-y: auto;
+}
+
+.films__film {
+  width: 500px;
+  height: 250px;
+  padding: 0 15px;
+  list-style: none;
+}
+
+.tv-shows {
+  display: flex;
+  overflow-y: auto;
+}
+
+.tv-shows__tv-show {
+  width: 500px;
+  height: 250px;
+  padding: 0 15px;
+  list-style: none;
+}
+
+.img__poster {
+  height: 250px;
 }
 
 /*# sourceMappingURL=style.css.map */

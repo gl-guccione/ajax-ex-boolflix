@@ -34,6 +34,9 @@
         <h5>Lingua: <img class="flag" src="https://www.countryflags.io/{{original_language}}/flat/16.png"></h5>
         <h5>Voto: <span class="stars-{{stars}}"></span> ({{vote_average}}/10)</h5>
         <p>{{overview}}</p>
+        {{#if backdrop_path}}
+          <img class="img__poster" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}" alt="">
+        {{/if}}
       </li>
     </script>
 

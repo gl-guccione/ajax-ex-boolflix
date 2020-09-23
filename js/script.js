@@ -21,7 +21,50 @@ function toBaseFive(number) {
   }
 }
 
-// function that read the value of the #search input and make an ajax request
+// function that read the value of the #search input and make an ajax request for the tv-shows
+function displayTvShows() {
+
+  var searchValue = $("#search").val();
+
+  if (searchValue != "") {
+    $.ajax(
+      {
+        "url": "https://api.themoviedb.org/3/search/tv",
+        "data": {
+          "api_key": "bde17cab6f3147255ce4802924edb786",
+          "language": "it-IT",
+          "include_adult": "false",
+          "query": searchValue,
+        },
+        "method": "GET",
+        "success": function(date, state) {
+          printTvShows(date.results);
+        },
+        "error": function() {
+          alert("error");
+        },
+      }
+    );
+  }
+}
+
+// function that take the results of the ajax request and print the list of the tv-shows with handlebars
+function printTvShows(arrObject) {
+
+  var source = $("#tv-shows-template").html();
+  var template = Handlebars.compile(source);
+
+  for (var i = 0; i < arrObject.length; i++) {
+
+    arrObject[i]["stars"] = toBaseFive(arrObject[i].vote_average);
+
+    var html = template(arrObject[i]);
+    $(".tv-shows").append(html);
+  }
+
+}
+
+// function that read the value of the #search input and make an ajax request for the films
 function displayFilm() {
 
   var searchValue = $("#search").val();
@@ -51,8 +94,6 @@ function displayFilm() {
 // function that take the results of the ajax request and print the list of the films with handlebars
 function printFilms(arrObject) {
 
-  console.log(arrObject[0]);
-
   var source = $("#films-template").html();
   var template = Handlebars.compile(source);
 
@@ -80,6 +121,7 @@ $(document).ready(function() {
   $(".searchbar__button").click(function() {
     $(".films").html("");
     displayFilm();
+    displayTvShows()
     $("#search").val("");
   });
 
@@ -87,6 +129,7 @@ $(document).ready(function() {
     if (e.which == 13 && $("#search").val() != "") {
       $(".films").html("");
       displayFilm();
+      displayTvShows()
       $("#search").val("");
     }
   });

@@ -12,6 +12,15 @@
 
 // functions
 
+// function that convert a (number) in base 10 to a number in base 5
+function toBaseFive(number) {
+  if (!isNaN(number)) {
+    return Math.ceil(number / 2);
+  } else {
+    return 0;
+  }
+}
+
 // function that read the value of the #search input and make an ajax request
 function displayFilm() {
 

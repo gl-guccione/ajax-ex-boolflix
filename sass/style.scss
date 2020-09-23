@@ -10,6 +10,7 @@ $searchbarHeigth: 100px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
   color: #fff;
 }
 
@@ -19,6 +20,7 @@ body {
 
 input {
   color: #070606;
+  outline: none;
 }
 
 .flag {
@@ -139,7 +141,8 @@ span.stars-5::before {
 
 .films {
   display: flex;
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
   &__film {
     width: 500px;
     height: 250px;
@@ -151,7 +154,8 @@ span.stars-5::before {
 
 .tv-shows {
   display: flex;
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
   &__tv-show {
     width: 500px;
     height: 250px;

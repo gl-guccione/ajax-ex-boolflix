@@ -11,6 +11,7 @@ body {
 
 input {
   color: #070606;
+  outline: none;
 }
 
 .flag {
@@ -116,7 +117,8 @@ span.stars-5::before {
 
 .films {
   display: flex;
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .films__film {
@@ -128,7 +130,8 @@ span.stars-5::before {
 
 .tv-shows {
   display: flex;
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .tv-shows__tv-show {

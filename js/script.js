@@ -51,11 +51,19 @@ function displayFilm() {
 // function that take the results of the ajax request and print the list of the films with handlebars
 function printFilms(arrObject) {
 
+  console.log(arrObject[0]);
+
   var source = $("#films-template").html();
   var template = Handlebars.compile(source);
 
   for (var i = 0; i < arrObject.length; i++) {
+
+    if (arrObject[i]["original_language"] == "en") {
+      arrObject[i]["original_language"] = "gb";
+    }
+
     arrObject[i]["stars"] = toBaseFive(arrObject[i].vote_average);
+
     var html = template(arrObject[i]);
     $(".films").append(html);
   }

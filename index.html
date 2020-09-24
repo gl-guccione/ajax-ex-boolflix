@@ -42,11 +42,14 @@
     <script id="films-template" type="text/x-handlebars-template">
       <li class="films__film">
         {{#if backdrop_path}}
-        <img class="img__poster" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}" alt="">
+        <img class="img__poster" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}" alt="poster {{title}}">
         {{/if}}
+        {{#unless backdrop_path}}
+        <img class="img__poster" src="img/missing-img.jpg" alt="immagine assente">
+        {{/unless}}
         <h2>Titolo: {{title}}</h2>
         <h4>Titolo Originale{{original_title}}</h4>
-        <h5>Lingua: <img class="flag" src="https://www.countryflags.io/{{original_language}}/flat/16.png"></h5>
+        <h5>Lingua: <img class="flag" src="https://www.countryflags.io/{{original_language}}/flat/16.png"  alt="{{original_language}}"></h5>
         <h5>Voto: <span class="stars-{{stars}}"></span> ({{vote_average}}/10)</h5>
         <p>{{overview}}</p>
       </li>
@@ -55,11 +58,14 @@
     <script id="tv-shows-template" type="text/x-handlebars-template">
       <li class="tv-shows__tv-show">
         {{#if backdrop_path}}
-        <img class="img__poster" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}" alt="">
+        <img class="img__poster" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}" alt="poster {{name}}">
         {{/if}}
+        {{#unless backdrop_path}}
+        <img class="img__poster" src="img/missing-img.jpg" alt="immagine assente">
+        {{/unless}}
         <h2>Nome: {{name}}</h2>
         <h4>Nome Originale: {{original_name}}</h4>
-        <h5>Lingua: <img class="flag" src="https://www.countryflags.io/{{origin_country}}/flat/16.png"></h5>
+        <h5>Lingua: <img class="flag" src="https://www.countryflags.io/{{origin_country}}/flat/16.png" alt="{{origin_country}}"></h5>
         <h5>Voto: <span class="stars-{{stars}}"></span> ({{vote_average}}/10)</h5>
         <p>{{overview}}</p>
       </li>

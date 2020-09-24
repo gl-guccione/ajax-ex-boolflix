@@ -123,7 +123,7 @@ span.stars-5::before {
 
 .films__film {
   width: 500px;
-  height: 250px;
+  height: 450px;
   padding: 0 15px;
   list-style: none;
 }
@@ -136,7 +136,7 @@ span.stars-5::before {
 
 .tv-shows__tv-show {
   width: 500px;
-  height: 250px;
+  height: 450px;
   padding: 0 15px;
   list-style: none;
 }

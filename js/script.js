@@ -29,8 +29,10 @@ function requestData(query, type) {
 
   if (type == "movie") {
     var httpBody = "/search/movie";
+    var container = $(".film__container");
   } else if (type == "tv") {
     var httpBody = "/search/tv";
+    var container = $(".tv-shows__container");
   }
 
   var uri = "https://api.themoviedb.org/3";
@@ -48,7 +50,13 @@ function requestData(query, type) {
         },
         "method": "GET",
         "success": function(date, state) {
-          printData(type, date.results);
+          if (date["total_results"] == 0) {
+            container.addClass("d_none");
+            alert("nessun risultato per " + type);
+          } else {
+            container.removeClass("d_none");
+            printData(type, date.results);
+          }
         },
         "error": function() {
           alert("error");

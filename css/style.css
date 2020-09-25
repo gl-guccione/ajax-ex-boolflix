@@ -18,6 +18,10 @@ input {
   vertical-align: middle;
 }
 
+.d_none {
+  display: none;
+}
+
 .logo {
   height: 50px;
   padding-left: 20px;
@@ -85,6 +89,7 @@ span.stars-5::before {
 
 .searchbar {
   position: fixed;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,37 +117,129 @@ span.stars-5::before {
 
 .film__container,
 .tv-shows__container {
+  height: 380px;
   padding: 25px;
+}
+
+.film__container > h2,
+.tv-shows__container > h2 {
+  padding-left: 30px;
 }
 
 .films {
   display: flex;
-  overflow-y: hidden;
   overflow-x: auto;
+  overflow-y: hidden;
+  padding: 50px 30px;
 }
 
 .films__film {
-  width: 500px;
-  height: 450px;
-  padding: 0 15px;
+  margin: 0 10px;
+  position: relative;
   list-style: none;
+  transition: transform 400ms;
+}
+
+.films__film:hover {
+  z-index: 10;
+  transform: scale(1.1);
+  filter: drop-shadow(1px 1px 3px #585858);
+}
+
+.films__film:hover .films__info {
+  max-height: 100%;
+}
+
+.films__info {
+  overflow: hidden;
+  width: 355px;
+  max-height: 0px;
+  margin-top: -8px;
+  transition: max-height 500ms ease 200ms;
+  background-color: #606060;
+  font-size: 14px;
+}
+
+.films__title {
+  margin: 15px 10px;
+  font-size: 18px;
+}
+
+.films__overview {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  margin: 0 10px;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+
+.films__rate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 15px 10px 10px;
 }
 
 .tv-shows {
   display: flex;
-  overflow-y: hidden;
   overflow-x: auto;
+  overflow-y: hidden;
+  padding: 50px 30px;
 }
 
 .tv-shows__tv-show {
-  width: 500px;
-  height: 450px;
-  padding: 0 15px;
+  margin: 0 10px;
+  position: relative;
   list-style: none;
+  transition: transform 400ms;
+}
+
+.tv-shows__tv-show:hover {
+  z-index: 10;
+  transform: scale(1.1);
+  filter: drop-shadow(1px 1px 3px #585858);
+}
+
+.tv-shows__tv-show:hover .tv-shows__info {
+  max-height: 100%;
+}
+
+.tv-shows__info {
+  overflow: hidden;
+  width: 355px;
+  max-height: 0px;
+  margin-top: -8px;
+  transition: max-height 500ms ease 200ms;
+  background-color: #606060;
+  font-size: 14px;
+}
+
+.tv-shows__title {
+  margin: 15px 10px;
+  font-size: 18px;
+}
+
+.tv-shows__overview {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  margin: 0 10px;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+
+.tv-shows__rate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 15px 10px 10px;
 }
 
 .img__poster {
-  height: 250px;
+  object-fit: cover;
+  width: 355px;
+  height: 200px;
 }
 
 /*# sourceMappingURL=style.css.map */

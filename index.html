@@ -27,12 +27,12 @@
 
     <div></div>
 
-    <div class="film__container">
+    <div class="film__container d_none">
       <h2>Films</h2>
       <ul class="films"></ul>
     </div>
 
-    <div class="tv-shows__container">
+    <div class="tv-shows__container d_none">
       <h2>TV-Shows</h2>
       <ul class="tv-shows"></ul>
     </div>
@@ -46,44 +46,58 @@
         <img class="img__poster" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}" alt="poster {{title}}">
         {{/if}}
         {{#unless backdrop_path}}
-        <img class="img__poster" src="img/missing-img.jpg" alt="immagine assente">
+        <img class="img__poster" src="img/missing-img.jpg" alt="immagine per {{title}} assente">
         {{/unless}}
 
-        <h2>Titolo: {{title}}</h2>
+        <div class="films__info">
 
-        <h4>Titolo Originale{{original_title}}</h4>
+          <h2 class="films__title">{{title}}</h2>
 
-        {{#if original_language}}
-        <h5>Lingua: <img class="flag" src="https://www.countryflags.io/{{original_language}}/flat/16.png"  alt="{{original_language}}"></h5>
-        {{/if}}
+          <p class="films__overview">{{overview}}</p>
 
-        <h5>Voto: <span class="stars-{{stars}}"></span> ({{vote_average}}/10)</h5>
+          <div class="films__rate">
 
-        <p>{{overview}}</p>
+            <h5 class="films__stars"><span class="stars-{{stars}}"></span> ({{vote_average}}/10)</h5>
+
+            {{#if original_language}}
+            <h5 class="films__lang">Lingua: <img class="flag" src="https://www.countryflags.io/{{original_language}}/flat/16.png"  alt="{{original_language}}"></h5>
+            {{/if}}
+
+          </div>
+
+        </div>
+
       </li>
     </script>
 
     <script id="tv-shows-template" type="text/x-handlebars-template">
+
       <li class="tv-shows__tv-show">
 
         {{#if backdrop_path}}
         <img class="img__poster" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}" alt="poster {{name}}">
         {{/if}}
         {{#unless backdrop_path}}
-        <img class="img__poster" src="img/missing-img.jpg" alt="immagine assente">
+        <img class="img__poster" src="img/missing-img.jpg" alt="immagine per {{name}} assente">
         {{/unless}}
 
-        <h2>Nome: {{name}}</h2>
+        <div class="tv-shows__info">
 
-        <h4>Nome Originale: {{original_name}}</h4>
+          <h2 class="tv-shows__title">{{name}}</h2>
 
-        {{#if origin_country}}
-        <h5>Lingua: <img class="flag" src="https://www.countryflags.io/{{origin_country}}/flat/16.png" alt="{{origin_country}}"></h5>
-        {{/if}}
+          <p class="tv-shows__overview">{{overview}}</p>
 
-        <h5>Voto: <span class="stars-{{stars}}"></span> ({{vote_average}}/10)</h5>
+          <div class="tv-shows__rate">
 
-        <p>{{overview}}</p>
+            <h5 class="tv-shows__stars"><span class="stars-{{stars}}"></span> ({{vote_average}}/10)</h5>
+
+            {{#if origin_country}}
+            <h5 class="tv-shows__lang">Lingua: <img class="flag" src="https://www.countryflags.io/{{origin_country}}/flat/16.png"  alt="{{origin_country}}"></h5>
+            {{/if}}
+
+          </div>
+
+        </div>
 
       </li>
     </script>

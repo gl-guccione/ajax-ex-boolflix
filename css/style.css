@@ -9,9 +9,10 @@ body {
   background-color: #070606;
 }
 
-input {
+#search {
   color: #070606;
   outline: none;
+  border: none;
 }
 
 .flag {
@@ -240,6 +241,17 @@ span.stars-5::before {
   object-fit: cover;
   width: 355px;
   height: 200px;
+}
+
+.films::-webkit-scrollbar,
+.tv-shows::-webkit-scrollbar {
+  display: none;
+}
+
+.films,
+.tv-shows {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /*# sourceMappingURL=style.css.map */

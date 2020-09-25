@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <!-- google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap">
     <!-- add jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- add handlebars -->
@@ -19,6 +21,16 @@
 
       <img class="logo" src="img/boolflix.png" alt="boolflix logo">
 
+      <div class="select-type">
+        <span class="select-type__all active" data-search="all">Film/Serie Tv</span>
+        <span class="select-type__film" data-search="films">Film</span>
+        <span class="select-type__serie-tv" data-search="tv-shows">Serie Tv</span>
+      </div>
+
+      <select class="select-genres" name="">
+        <option value="0">Tutti i generi</option>
+      </select>
+
       <div class="search__container">
         <input id="search" class="searchbar__search" type="text" value="">
         <span class="searchbar__button"><i class="fas fa-search"></i></span>
@@ -26,6 +38,8 @@
     </nav>
 
     <div></div>
+
+    <p class="results"><span class="results__num"></span> risultati per "<span class="results__search"></span>".</p>
 
     <section class="film__container d_none">
       <h2>Films</h2>
@@ -38,7 +52,7 @@
     </section>
 
 
-    <!-- handlebars - template -->
+    <!-- handlebars - template for film card-->
     <script id="films-template" type="text/x-handlebars-template">
       <li class="films__film">
 
@@ -69,7 +83,9 @@
 
       </li>
     </script>
+    <!-- /handlebars - template for film card-->
 
+    <!-- handlebars - template for tv-show card-->
     <script id="tv-shows-template" type="text/x-handlebars-template">
 
       <li class="tv-shows__tv-show">
@@ -101,7 +117,16 @@
 
       </li>
     </script>
-    <!-- /handlebars - template -->
+    <!-- /handlebars - template for tv-show card-->
+
+    <!-- template for generate options -->
+    <div class="template">
+      <option value="0">Tutti i generi</option>
+    </div>
+    <!-- /template for generate options -->
+
+
+
     <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>

@@ -3,8 +3,16 @@
 function searchContent() {
   var searchValue = $("#search").val();
   clear();
-  requestData(searchValue, "movie");
-  requestData(searchValue, "tv");
+  if (searchType == "all") {
+    requestData(searchValue, "movie");
+    requestData(searchValue, "tv");
+  } else if (searchType == "films") {
+    requestData(searchValue, "movie");
+    $(".tv-shows__container").addClass("d_none");
+  } else if (searchType == "tv-shows") {
+    requestData(searchValue, "tv");
+    $(".film__container").addClass("d_none");
+  }
 
   $("#search").val("");
 }
@@ -96,10 +104,13 @@ function printData(type, arrObject) {
 
 // script
 
+var searchType = "all";
+
 // document ready
 $(document).ready(function() {
 
   $("#search").val("");
+  $(".select-genres").val("0");
 
   $(".searchbar__button").click(function() {
     searchContent();
@@ -108,6 +119,15 @@ $(document).ready(function() {
   $("#search").keyup(function(e) {
     if (e.which == 13 && $("#search").val() != "") {
       searchContent();
+    }
+  });
+
+  $(".select-type").children().click(function() {
+    var attribute = $(this).attr("data-search");
+    if (searchType != attribute) {
+      $(".select-type").children().removeClass("active");
+      $(this).addClass("active");
+      searchType = attribute;
     }
   });
 

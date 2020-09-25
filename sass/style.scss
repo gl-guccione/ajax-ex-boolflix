@@ -12,20 +12,34 @@ $searchbarHeigth: 70px;
   padding: 0;
 
   color: #fff;
+
+  font-family: 'Lato', sans-serif;
 }
 
 body {
   background-color: #070606;
 }
 
+.template {
+  display: none;
+}
+
+.select-genres {
+  color: #000;
+}
+
 #search {
   color: #070606;
-  outline: none;
   border: none;
+  outline: none;
 }
 
 .flag {
   vertical-align: middle;
+}
+
+.results {
+  margin: 30px 0 20px 55px;
 }
 
 .d_none {
@@ -33,6 +47,20 @@ body {
 }
 
 // ELEMENTS
+
+.select-type {
+  > * {
+    margin: 0 10px;
+    padding: 0 5px;
+
+    cursor: pointer;
+  }
+  > *.active {
+    border-bottom: 2px solid #cb3332;
+  }
+
+}
+
 
 .logo {
   height: $searchbarHeigth - 25px;
@@ -156,8 +184,9 @@ span.stars-5::before {
 
   padding: 50px 30px;
   &__film {
-    margin: 0 10px;
     position: relative;
+
+    margin: 0 10px;
 
     list-style: none;
 
@@ -180,7 +209,7 @@ span.stars-5::before {
     max-height: 0px;
     margin-top: -8px;
 
-    transition: max-height 500ms ease 200ms;
+    transition: max-height 400ms ease 200ms;
 
     background-color: #606060;
 
@@ -218,8 +247,9 @@ span.stars-5::before {
 
   padding: 50px 30px;
   &__tv-show {
-    margin: 0 10px;
     position: relative;
+
+    margin: 0 10px;
 
     list-style: none;
 
@@ -242,7 +272,7 @@ span.stars-5::before {
     max-height: 0px;
     margin-top: -8px;
 
-    transition: max-height 500ms ease 200ms;
+    transition: max-height 400ms ease 200ms;
 
     background-color: #606060;
 
@@ -274,9 +304,10 @@ span.stars-5::before {
 }
 
 .img__poster {
-  object-fit: cover;
   width: 355px;
   height: 200px;
+
+  object-fit: cover;
 }
 
 

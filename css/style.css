@@ -24,7 +24,7 @@ body {
 }
 
 .logo {
-  height: 50px;
+  height: 45px;
   padding-left: 20px;
 }
 
@@ -95,13 +95,13 @@ span.stars-5::before {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 100px;
+  height: 70px;
   border-bottom: 1px solid #d40100;
   background-color: #606060;
 }
 
 .searchbar + * {
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .searchbar__search {

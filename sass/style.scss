@@ -2,7 +2,7 @@
 
 // VARIABLES
 
-$searchbarHeigth: 100px;
+$searchbarHeigth: 70px;
 
 // GENERAL
 
@@ -35,7 +35,7 @@ body {
 // ELEMENTS
 
 .logo {
-  height: $searchbarHeigth - 50px;
+  height: $searchbarHeigth - 25px;
   padding-left: 20px;
 }
 
@@ -283,11 +283,11 @@ span.stars-5::before {
 // hide scrollbar
 .films::-webkit-scrollbar,
 .tv-shows::-webkit-scrollbar {
- display: none;
+  display: none;
 }
 
 .films,
 .tv-shows {
- -ms-overflow-style: none;
- scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

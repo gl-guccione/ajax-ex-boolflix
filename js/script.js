@@ -25,7 +25,7 @@ function toBaseFive(number) {
 }
 
 // function that read the value of the #search input and make an ajax request for (type)
-function requestData(search, type) {
+function requestData(query, type) {
 
   if (type == "movie") {
     var httpBody = "/search/movie";
@@ -36,7 +36,7 @@ function requestData(search, type) {
   var uri = "https://api.themoviedb.org/3";
   var url = uri + httpBody;
 
-  if (search != "") {
+  if (query != "") {
     $.ajax(
       {
         "url": url,
@@ -44,7 +44,7 @@ function requestData(search, type) {
           "api_key": "bde17cab6f3147255ce4802924edb786",
           "language": "it-IT",
           "include_adult": "false",
-          "query": search,
+          "query": query,
         },
         "method": "GET",
         "success": function(date, state) {

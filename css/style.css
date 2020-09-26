@@ -14,7 +14,8 @@ body {
   display: none;
 }
 
-.select-genres {
+.select-movie-genres,
+.select-tv-genres {
   color: #000;
 }
 

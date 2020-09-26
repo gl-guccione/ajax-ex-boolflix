@@ -17,39 +17,68 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" charset="utf-8"></script>
   </head>
   <body>
+    <!-- nav.searchbar -->
     <nav class="searchbar">
-
+      <!-- logo -->
       <img class="logo" src="img/boolflix.png" alt="boolflix logo">
+      <!-- /logo -->
 
+      <!-- search for all - only film - only tv-show -->
       <div class="select-type">
         <span class="select-type__all active" data-search="all">Film/Serie Tv</span>
         <span class="select-type__film" data-search="films">Film</span>
         <span class="select-type__serie-tv" data-search="tv-shows">Serie Tv</span>
       </div>
+      <!-- /search for all - only film - only tv-show -->
 
-      <select class="select-genres" name="">
-        <option value="0">Tutti i generi</option>
-      </select>
+      <!-- filter genres for films -->
+      <div class="movie-genres">
+        <label for="movie-genres">Film</label>
+        <select class="select-movie-genres" name="movie-genres">
+          <option value="0">Tutti i generi</option>
+        </select>
+      </div>
+      <!-- /filter genres for films -->
 
+      <!-- filter genres for tv show -->
+      <div class="tv-genres">
+        <label for="tv-genres">Serie Tv</label>
+        <select class="select-tv-genres" name="tv-genres">
+          <option value="0">Tutti i generi</option>
+        </select>
+      </div>
+      <!-- /filter genres for tv show -->
+
+      <!-- search input & search__button -->
       <div class="search__container">
         <input id="search" class="searchbar__search" type="text" value="">
         <span class="searchbar__button"><i class="fas fa-search"></i></span>
       </div>
+      <!-- /search input & search__button -->
     </nav>
+    <!-- /nav.searchbar -->
 
+    <!-- div for spacing -->
     <div></div>
+    <!-- /div for spacing -->
 
+    <!-- qnt results -->
     <p class="results"><span class="results__num"></span> risultati per "<span class="results__search"></span>".</p>
+    <!-- qnt results -->
 
+    <!-- film container -->
     <section class="film__container d_none">
       <h2>Films</h2>
       <ul class="films"></ul>
     </section>
+    <!-- /film container -->
 
+    <!-- tv show container -->
     <section class="tv-shows__container d_none">
       <h2>TV-Shows</h2>
       <ul class="tv-shows"></ul>
     </section>
+    <!-- /tv show container -->
 
 
     <!-- handlebars - template for film card-->

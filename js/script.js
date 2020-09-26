@@ -123,9 +123,13 @@ function printData(type, arrObject) {
   if (type == "movie") {
     var htmlTemplate = $("#films-template");
     var dataContainer = $(".films");
+    var genre = $(".select-movie-genres").val();
+    console.log(genre);
   } else if (type == "tv") {
     var htmlTemplate = $("#tv-shows-template");
     var dataContainer = $(".tv-shows");
+    var genre = $(".select-tv-genres").val();
+    console.log(genre);
   }
 
   var source = htmlTemplate.html();
@@ -176,6 +180,16 @@ $(document).ready(function() {
       $(".select-type").children().removeClass("active");
       $(this).addClass("active");
       searchType = attribute;
+    }
+    if (attribute == "all") {
+      $(".movie-genres").removeClass("d_none");
+      $(".tv-genres").removeClass("d_none");
+    } else if (attribute == "films") {
+      $(".movie-genres").removeClass("d_none");
+      $(".tv-genres").addClass("d_none");
+    } else if (attribute == "tv-shows") {
+      $(".movie-genres").addClass("d_none");
+      $(".tv-genres").removeClass("d_none");
     }
   });
 

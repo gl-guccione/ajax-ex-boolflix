@@ -1,5 +1,48 @@
 // functions
 
+// function that create the option for the select (genres)
+function createGenresSelect(container, genres) {
+  for (var i = 0; i < genres.length; i++) {
+    var option = $(".template option").clone();
+    option.val(genres[i]["id"]).text(genres[i]["name"])
+    container.append(option);
+  }
+}
+
+// function that get all the genres
+function getGenres(type) {
+  var uri = "https://api.themoviedb.org/3/genre/";
+
+  if (type == "movie") {
+    var httpBody = "movie/list";
+    var select = $(".select-movie-genres");
+  } else if (type == "tv") {
+    var httpBody = "tv/list";
+    var select = $(".select-tv-genres");
+  }
+
+  var url = uri + httpBody;
+
+  $.ajax(
+    {
+      "url": url,
+      "data": {
+        "api_key": "bde17cab6f3147255ce4802924edb786",
+        "language": "it-IT",
+      },
+      "method": "GET",
+      "success": function(date, state) {
+        createGenresSelect(select, date.genres)
+      },
+      "error": function() {
+        alert("error");
+      },
+    }
+  );
+
+}
+
+// function that read the value of the input and make all the request for display the results
 function searchContent() {
   var searchValue = $("#search").val();
   clear();
@@ -109,19 +152,24 @@ var searchType = "all";
 // document ready
 $(document).ready(function() {
 
+  // reset of input and select
   $("#search").val("");
-  $(".select-genres").val("0");
+  $(".select-movie-genres").val("0");
+  $(".select-tv-genres").val("0");
 
+  // click function on searchbar__button
   $(".searchbar__button").click(function() {
     searchContent();
   });
 
+  // keyup function on search input
   $("#search").keyup(function(e) {
     if (e.which == 13 && $("#search").val() != "") {
       searchContent();
     }
   });
 
+  // read filter for search only films, only tv-shows or both
   $(".select-type").children().click(function() {
     var attribute = $(this).attr("data-search");
     if (searchType != attribute) {
@@ -130,5 +178,9 @@ $(document).ready(function() {
       searchType = attribute;
     }
   });
+
+  // get the genres and composing the select for both film and tv-show
+  getGenres("movie");
+  getGenres("tv");
 
 });

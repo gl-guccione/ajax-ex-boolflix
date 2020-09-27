@@ -45,6 +45,7 @@ function getGenres(type) {
 // function that read the value of the input and make all the request for display the results
 function searchContent() {
   var searchValue = $("#search").val();
+  $(".results__search").text(searchValue);
   clear();
   if (searchType == "all") {
     requestData(searchValue, "movie");
@@ -124,12 +125,11 @@ function printData(type, arrObject) {
     var htmlTemplate = $("#films-template");
     var dataContainer = $(".films");
     var genre = $(".select-movie-genres").val();
-    console.log(genre);
+    genre = parseInt(genre);
   } else if (type == "tv") {
     var htmlTemplate = $("#tv-shows-template");
     var dataContainer = $(".tv-shows");
     var genre = $(".select-tv-genres").val();
-    console.log(genre);
   }
 
   var source = htmlTemplate.html();
@@ -144,7 +144,9 @@ function printData(type, arrObject) {
     arrObject[i]["stars"] = toBaseFive(arrObject[i].vote_average);
 
     var html = template(arrObject[i]);
-    dataContainer.append(html);
+    if (genre == "0" || (arrObject[i]["genre_ids"].includes(genre))) {
+      dataContainer.append(html);
+    }
   }
 
 }

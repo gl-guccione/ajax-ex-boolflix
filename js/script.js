@@ -174,6 +174,7 @@ function printData(type, arrObject) {
   if (dataContainer[0].scrollWidth > dataContainer[0].clientWidth) {
     dataContainer.siblings(".scroll-control").children("[class^=\"prev-\"]").removeClass("d_none");
     dataContainer.siblings(".scroll-control").children("[class^=\"next-\"]").removeClass("d_none");
+    dataContainer.scrollLeft(0);
   } else {
     dataContainer.siblings(".scroll-control").children("[class^=\"prev-\"]").addClass("d_none");
     dataContainer.siblings(".scroll-control").children("[class^=\"next-\"]").addClass("d_none");

@@ -51,8 +51,6 @@ body {
   position: absolute;
   z-index: 10;
   top: 50%;
-  display: flex;
-  justify-content: space-between;
   width: calc(100% - 50px);
   height: 0;
   font-size: 28px;
@@ -60,6 +58,14 @@ body {
 
 .scroll-control > * {
   cursor: pointer;
+}
+
+.scroll-control > [class^="prev-"] {
+  float: left;
+}
+
+.scroll-control > [class^="next-"] {
+  float: right;
 }
 
 .logo {

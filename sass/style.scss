@@ -66,15 +66,18 @@ body {
   z-index: 10;
   top: 50%;
 
-  display: flex;
-  justify-content: space-between;
-
   width: calc(100% - 50px);
   height: 0;
 
   font-size: 28px;
   > * {
     cursor: pointer;
+  }
+  > [class^="prev-"] {
+    float: left;
+  }
+  > [class^="next-"] {
+    float: right;
   }
 }
 

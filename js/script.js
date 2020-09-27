@@ -1,5 +1,35 @@
 // functions
 
+// function that hide the left arrow when the user is all the way to the left, and hide the right arrow when the user is all the way to the right
+function hideArrows(type) {
+  if (type == "film") {
+    var dataContainer = $(".films");
+  } else if (type == "tv") {
+    var dataContainer = $(".tv-shows");
+  }
+  // var scrollWidth = dataContainer[0].scrollWidth;
+  // var clientWidth = dataContainer[0].clientWidth;
+  // var max = (scrollWidth - clientWidth);
+
+  dataContainer.scroll(function () {
+    if (dataContainer.scrollLeft() <= 0) {
+      dataContainer.siblings(".scroll-control").children("[class^=\"prev-\"]").addClass("d_none");
+    } else {
+      dataContainer.siblings(".scroll-control").children("[class^=\"prev-\"]").removeClass("d_none");
+    }
+
+    // console.log(scrollWidth);
+    // console.log(clientWidth);
+    // console.log(max);
+
+    if (dataContainer.scrollLeft() >= (dataContainer[0].scrollWidth - dataContainer[0].clientWidth)) {
+      dataContainer.siblings(".scroll-control").children("[class^=\"next-\"]").addClass("d_none");
+    } else {
+      dataContainer.siblings(".scroll-control").children("[class^=\"next-\"]").removeClass("d_none");
+    }
+  });
+}
+
 // function that scroll element
 function scrollElm(elm, qnt) {
   document.getElementsByClassName(elm)[0].scrollBy({
@@ -172,7 +202,6 @@ function printData(type, arrObject) {
   }
 
   if (dataContainer[0].scrollWidth > dataContainer[0].clientWidth) {
-    dataContainer.siblings(".scroll-control").children("[class^=\"prev-\"]").removeClass("d_none");
     dataContainer.siblings(".scroll-control").children("[class^=\"next-\"]").removeClass("d_none");
     dataContainer.scrollLeft(0);
   } else {
@@ -243,5 +272,9 @@ $(document).ready(function() {
   $(".next-tv").click(function() {
     scrollElm("tv-shows", 700)
   });
+
+  // scroll event
+  hideArrows("film");
+  hideArrows("tv");
 
 });

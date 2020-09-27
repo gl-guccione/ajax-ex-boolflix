@@ -59,9 +59,23 @@ body {
   > *.active {
     border-bottom: 2px solid #cb3332;
   }
-
 }
 
+.scroll-control {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: calc(100% - 50px);
+
+  font-size: 28px;
+  > * {
+    cursor: pointer;
+  }
+}
 
 .logo {
   height: $searchbarHeigth - 25px;
@@ -171,6 +185,8 @@ span.stars-5::before {
 
 .film__container,
 .tv-shows__container {
+  position: relative;
+
   height: 380px;
   padding: 25px;
   > h2 {
@@ -183,6 +199,7 @@ span.stars-5::before {
   overflow-x: auto;
   overflow-y: hidden;
 
+  margin: 0 35px;
   padding: 50px 30px;
   &__film {
     position: relative;
@@ -195,7 +212,7 @@ span.stars-5::before {
     &:hover {
       z-index: 10;
 
-      transform: scale(1.1);
+      transform: scale(1.15);
 
       filter: drop-shadow(1px 1px 3px #585858);
     }
@@ -246,6 +263,7 @@ span.stars-5::before {
   overflow-x: auto;
   overflow-y: hidden;
 
+  margin: 0 35px;
   padding: 50px 30px;
   &__tv-show {
     position: relative;

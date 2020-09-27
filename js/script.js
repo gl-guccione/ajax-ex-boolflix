@@ -1,5 +1,14 @@
 // functions
 
+// function that scroll element
+function scrollElm(elm, qnt) {
+  document.getElementsByClassName(elm)[0].scrollBy({
+    top: 0,
+    left: qnt,
+    behavior: 'smooth'
+  });
+}
+
 // function that create the option for the select (genres)
 function createGenresSelect(container, genres) {
   for (var i = 0; i < genres.length; i++) {
@@ -211,5 +220,19 @@ $(document).ready(function() {
   // get the genres and composing the select for both film and tv-show
   getGenres("movie");
   getGenres("tv");
+
+  // scoll-control
+  $(".prev-movie").click(function() {
+    scrollElm("films", -700)
+  });
+  $(".next-movie").click(function() {
+    scrollElm("films", 700)
+  });
+  $(".prev-tv").click(function() {
+    scrollElm("tv-shows", -700)
+  });
+  $(".next-tv").click(function() {
+    scrollElm("tv-shows", 700)
+  });
 
 });

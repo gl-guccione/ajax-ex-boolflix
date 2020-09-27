@@ -3,7 +3,6 @@
 // function that scroll element
 function scrollElm(elm, qnt) {
   document.getElementsByClassName(elm)[0].scrollBy({
-    top: 0,
     left: qnt,
     behavior: 'smooth'
   });
@@ -171,6 +170,15 @@ function printData(type, arrObject) {
   if ($(item).length == 0) {
     container.addClass("d_none");
   }
+
+  if (dataContainer[0].scrollWidth > dataContainer[0].clientWidth) {
+    dataContainer.siblings(".scroll-control").children("[class^=\"prev-\"]").removeClass("d_none");
+    dataContainer.siblings(".scroll-control").children("[class^=\"next-\"]").removeClass("d_none");
+  } else {
+    dataContainer.siblings(".scroll-control").children("[class^=\"prev-\"]").addClass("d_none");
+    dataContainer.siblings(".scroll-control").children("[class^=\"next-\"]").addClass("d_none");
+  }
+
 }
 
 // script

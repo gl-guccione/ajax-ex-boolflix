@@ -45,7 +45,9 @@ function getGenres(type) {
 // function that read the value of the input and make all the request for display the results
 function searchContent() {
   var searchValue = $("#search").val();
+  $(".results").removeClass("d_none");
   $(".results__search").text(searchValue);
+
   clear();
   if (searchType == "all") {
     requestData(searchValue, "movie");

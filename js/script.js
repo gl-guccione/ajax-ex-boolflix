@@ -47,6 +47,7 @@ function searchContent() {
   var searchValue = $("#search").val();
   $(".results").removeClass("d_none");
   $(".results__search").text(searchValue);
+  $(".results__num").text("0");
 
   clear();
   if (searchType == "all") {
@@ -106,7 +107,6 @@ function requestData(query, type) {
         "success": function(date, state) {
           if (date["total_results"] == 0) {
             container.addClass("d_none");
-            alert("nessun risultato per " + type);
           } else {
             container.removeClass("d_none");
             printData(type, date.results);
@@ -128,10 +128,14 @@ function printData(type, arrObject) {
     var dataContainer = $(".films");
     var genre = $(".select-movie-genres").val();
     genre = parseInt(genre);
+    var item = ".film__container .films__film";
+    var container = $(".film__container")
   } else if (type == "tv") {
     var htmlTemplate = $("#tv-shows-template");
     var dataContainer = $(".tv-shows");
     var genre = $(".select-tv-genres").val();
+    var item = ".tv-shows__container .tv-shows__tv-show";
+    var container = $(".tv-shows__container")
   }
 
   var source = htmlTemplate.html();
@@ -151,6 +155,13 @@ function printData(type, arrObject) {
     }
   }
 
+  var qntItem = $(item).length;
+  var qntSaved = parseInt($(".results__num").text());
+  $(".results__num").text(qntItem + qntSaved);
+
+  if ($(item).length == 0) {
+    container.addClass("d_none");
+  }
 }
 
 // script

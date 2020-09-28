@@ -7,9 +7,9 @@ function hideArrows(type) {
   } else if (type == "tv") {
     var dataContainer = $(".tv-shows");
   }
-  // var scrollWidth = dataContainer[0].scrollWidth;
-  // var clientWidth = dataContainer[0].clientWidth;
-  // var max = (scrollWidth - clientWidth);
+  // var scrollWidth = dataContainer[0].scrollWidth; // return 0
+  // var clientWidth = dataContainer[0].clientWidth; // return 0
+  // var max = (scrollWidth - clientWidth); // return 0
 
   dataContainer.scroll(function () {
     if (dataContainer.scrollLeft() <= 0) {
@@ -18,9 +18,10 @@ function hideArrows(type) {
       dataContainer.siblings(".scroll-control").children("[class^=\"prev-\"]").removeClass("d_none");
     }
 
-    // console.log(scrollWidth);
-    // console.log(clientWidth);
-    // console.log(max);
+    // console.log(dataContainer[0].scrollWidth); // return correct number
+    // console.log(scrollWidth); // return 0
+    // console.log(clientWidth); // return 0
+    // console.log(max); // return 0
 
     if (dataContainer.scrollLeft() >= (dataContainer[0].scrollWidth - dataContainer[0].clientWidth)) {
       dataContainer.siblings(".scroll-control").children("[class^=\"next-\"]").addClass("d_none");
@@ -255,7 +256,7 @@ $(document).ready(function() {
     }
   });
 
-  // get the genres and composing the select for both film and tv-show
+  // get the genres and create the select for both film and tv-show
   getGenres("movie");
   getGenres("tv");
 
